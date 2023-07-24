@@ -1,0 +1,6 @@
+frontend/
+
+bin/
+
+*.log
+*.out

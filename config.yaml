@@ -1,0 +1,15 @@
+static_url_prefix: "/arena-app"
+static_root: "./static"
+
+name: "arena app"
+mode: "dev"
+port: 5000
+version: "v0.0.1"
+
+
+log:
+  level: "info"
+  filename: "web_app.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
