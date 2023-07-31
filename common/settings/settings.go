@@ -23,7 +23,10 @@ type Config struct {
 	StaticUrlPrefix string `mapstructure:"static_url_prefix"`
 	StaticRoot      string `mapstructure:"static_root"`
 
-	*LogConfig `mapstructure:"log"`
+	*LogConfig           `mapstructure:"log"`
+	*HarborConfig        `mapstructure:"harbor"`
+	*ElasticSearchConfig `mapstructure:"elasticsearch"`
+	*PrometheusConfig    `mapstructure:"prometheus"`
 }
 
 type LogConfig struct {
@@ -32,6 +35,25 @@ type LogConfig struct {
 	MaxSize    int    `mapstructure:"max_size"`
 	MaxAge     int    `mapstructure:"max_age"`
 	MaxBackups int    `mapstructure:"max_backups"`
+}
+
+type HarborConfig struct {
+	Scheme   string `mapstructure:"scheme"`
+	Host     string `mapstructure:"host"`
+	User     string `mapstructure:"user"`
+	Password string `mapstructure:"password"`
+}
+
+type ElasticSearchConfig struct {
+	Scheme   string `mapstructure:"scheme"`
+	Host     string `mapstructure:"host"`
+	User     string `mapstructure:"user"`
+	Password string `mapstructure:"password"`
+}
+
+type PrometheusConfig struct {
+	Host   string `mapstructure:"host"`
+	Scheme string `mapstructure:"scheme"`
 }
 
 var Conf Config

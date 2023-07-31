@@ -13,3 +13,19 @@ log:
   max_size: 200
   max_age: 30
   max_backups: 7
+
+harbor:
+  scheme: "http"
+  host: "localhost:5000"
+  user: "admin"
+  password: "Harbor12345"
+
+prometheus:
+  scheme: "http"
+  host: "localhost:39090"
+
+elasticsearch:
+  scheme: "http"
+  host: "localhost:9200"
+  user: "elastic"
+  password: "mj7L9DDnl91Ns6JDMXdR"
