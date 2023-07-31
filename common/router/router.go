@@ -43,6 +43,10 @@ func Router() *gin.Engine {
 	{
 		// harbor reverse proxy
 		_proxy.Any("/container/*proxyPath", proxy.HandlerHarborServer)
+		// prometheus reverse proxy
+		_proxy.Any("/metrics/*proxyPath", proxy.HandlerPrometheusServer)
+		// elasticsearch reverse proxy
+		_proxy.Any("/es/*proxyPath", proxy.HandlerElasticSearchServer)
 	}
 
 	router.Use(static.Serve(settings.Conf.StaticUrlPrefix, static.LocalFile(settings.Conf.StaticRoot, false)))
