@@ -7,6 +7,7 @@
 package router
 
 import (
+	"github.com/shy0526/gin-embed-vue/handler/proxy"
 	"net/http"
 
 	"github.com/gin-contrib/gzip"
@@ -36,6 +37,12 @@ func Router() *gin.Engine {
 			})
 		})
 
+	}
+
+	_proxy := router.Group("/p")
+	{
+		// harbor reverse proxy
+		_proxy.Any("/container/*proxyPath", proxy.HandlerHarborServer)
 	}
 
 	router.Use(static.Serve(settings.Conf.StaticUrlPrefix, static.LocalFile(settings.Conf.StaticRoot, false)))
